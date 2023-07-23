@@ -3,8 +3,8 @@ const navBar = {
   show: true,
 };
 
-const backendBaseURL = "http://ec2-54-227-28-253.compute-1.amazonaws.com:8080";
-const hostedURL = "http://ec2-54-227-28-253.compute-1.amazonaws.com:80";
+const backendBaseURL = "http://project.sharankonda.com:8080";
+const hostedURL = "http://project.sharankonda.com";
 
 // Main Body SECTION
 const mainBody = {
