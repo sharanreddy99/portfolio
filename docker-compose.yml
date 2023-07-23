@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  react:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - ${PORTFOLIO_FRONTEND_PORT}:3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules

@@ -3,8 +3,9 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
+import CustomModal from "../../utils/CustomModal";
 
-const ProjectCard = ({ value }) => {
+const ProjectCard = ({ value, hostedURL, deployURL }) => {
   const {
     name,
     description,
@@ -12,63 +13,115 @@ const ProjectCard = ({ value }) => {
     stargazers_count,
     languages_url,
     pushed_at,
+    default_branch,
+    is_active,
+    languages,
   } = value;
-  return (
-    <Col md={6}>
-      <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
-        <Card.Body>
-          <Card.Title as="h5">{name || <Skeleton />} </Card.Title>
-          <Card.Text>{(!description) ? "" : description || <Skeleton count={3} />} </Card.Text>
-          {svn_url ? <CardButtons svn_url={svn_url} /> : <Skeleton count={2} />}
-          <hr />
-          {languages_url ? (
-            <Language languages_url={languages_url} repo_url={svn_url} />
-          ) : (
-            <Skeleton count={3} />
-          )}
-          {value ? (
-            <CardFooter star_count={stargazers_count} repo_url={svn_url} pushed_at={pushed_at} />
-          ) : (
-            <Skeleton />
-          )}
-        </Card.Body>
-      </Card>
-    </Col>
-  );
-};
 
-const CardButtons = ({ svn_url }) => {
-  return (
-    <div className="d-grid gap-2 d-md-block">
-      <a
-        href={`${svn_url}/archive/master.zip`}
-        className="btn btn-outline-secondary mx-2"
-      >
-        <i className="fab fa-github" /> Clone Project
-      </a>
-      <a href={svn_url} target=" _blank" className="btn btn-outline-secondary mx-2">
-        <i className="fab fa-github" /> Repo
-      </a>
-    </div>
-  );
-};
+  const [showModal, setShowModal] = useState({
+    isShow: false,
+    title: "",
+    body: "",
+  });
 
-const Language = ({ languages_url, repo_url }) => {
-  const [data, setData] = useState([]);
-
-  const handleRequest = useCallback(async () => {
+  const buildProject = async () => {
     try {
-      const response = await axios.get(languages_url);
-      return setData(response.data);
-    } catch (error) {
-      console.error(error.message);
+      const resp = await axios.post(deployURL, {
+        project: name,
+        params: ["setupProject", name, svn_url, default_branch, "false"],
+      });
+
+      setShowModal({
+        isShow: true,
+        title: "Deployment in progress!",
+        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'Go To Project' button is visible",
+      });
+    } catch (e) {
+      setShowModal({
+        isShow: true,
+        title: "Action Failed!!!",
+        body: "We are unable to deploy the project at the moment. Please try again later.",
+      });
     }
-  }, [languages_url]);
+  };
 
-  useEffect(() => {
-    handleRequest();
-  }, [handleRequest]);
+  const CardButtons = () => {
+    return (
+      <div className="d-grid gap-2 d-md-block">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={svn_url}
+          className="btn btn-outline-secondary mx-2"
+        >
+          <i className="fab fa-github" /> Source Code
+        </a>
+        <button onClick={buildProject} className="btn btn-outline-danger mx-2">
+          <i className="fas fa-wrench" /> Deploy
+        </button>
 
+        <button
+          href={hostedURL}
+          target=" _blank"
+          className="btn btn-outline-success mx-2"
+          disabled={!is_active}
+        >
+          <i className="far fa-eye" /> Go to Project
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <Col md={6}>
+        <CustomModal
+          title={showModal.title}
+          body={showModal.body}
+          show={showModal.isShow}
+          setShow={setShowModal}
+        />
+        <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
+          <Card.Body>
+            <Card.Title as="h5">{name || <Skeleton />} </Card.Title>
+            <Card.Text>
+              {!description ? "" : description || <Skeleton count={3} />}{" "}
+            </Card.Text>
+            {svn_url ? (
+              <CardButtons
+                name={name}
+                default_branch={default_branch}
+                svn_url={svn_url}
+                hostedURL={hostedURL}
+                deployURL={deployURL}
+              />
+            ) : (
+              <Skeleton count={2} />
+            )}
+
+            <hr />
+            {languages_url ? (
+              <Language data={languages} repo_url={svn_url} />
+            ) : (
+              <Skeleton count={3} />
+            )}
+            {value ? (
+              <CardFooter
+                star_count={stargazers_count}
+                repo_url={svn_url}
+                pushed_at={pushed_at}
+              />
+            ) : (
+              <Skeleton />
+            )}
+          </Card.Body>
+        </Card>
+      </Col>
+    </>
+  );
+};
+
+const Language = ({ data, repo_url }) => {
   const array = [];
   let total_count = 0;
   for (let index in data) {
@@ -81,20 +134,19 @@ const Language = ({ languages_url, repo_url }) => {
       Languages:{" "}
       {array.length
         ? array.map((language) => (
-          <a
-            key={language}
-            className="card-link"
-            href={repo_url + `/search?l=${language}`}
-            target=" _blank"
-            rel="noopener noreferrer"
-          >
-            <span className="badge bg-light text-dark">
-              {language}:{" "}
-              {Math.trunc((data[language] / total_count) * 1000) / 10} %
-            </span>
-          </a>
-
-        ))
+            <a
+              key={language}
+              className="card-link"
+              href={repo_url + `/search?l=${language}`}
+              target=" _blank"
+              rel="noopener noreferrer"
+            >
+              <span className="badge bg-light text-dark">
+                {language}:{" "}
+                {Math.trunc((data[language] / total_count) * 1000) / 10} %
+              </span>
+            </a>
+          ))
         : "code yet to be deployed."}
     </div>
   );

@@ -8,7 +8,7 @@ import {
   leadership,
   skills,
   getInTouch,
-  experiences
+  experiences,
 } from "./editable-stuff/config.js";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
@@ -42,17 +42,17 @@ const Home = React.forwardRef((props, ref) => {
           resume={about.resume}
         />
       )}
-      {
-        experiences.show && (
-          <Experience experiences={experiences}/>
-        )
-      }
+      {experiences.show && <Experience experiences={experiences} />}
       {repos.show && (
         <Project
           heading={repos.heading}
           username={repos.gitHubUsername}
           length={repos.reposLength}
           specfic={repos.specificRepos}
+          repoURL={repos.repoURL}
+          hostedURL={repos.hostedURL}
+          deployURL={repos.deployURL}
+          languagesURL={repos.langugagesURL}
         />
       )}
       {leadership.show && (
@@ -66,11 +66,10 @@ const Home = React.forwardRef((props, ref) => {
       {skills.show && (
         <Skills
           heading={skills.heading}
-          hardSkills={skills.hardSkills}
-          softSkills={skills.softSkills}
+          defaultKey={skills.defaultKey}
+          skills={skills.skills}
         />
       )}
-      
     </>
   );
 });
@@ -79,23 +78,25 @@ const App = () => {
   const titleRef = React.useRef();
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
-      {navBar.show && <Navbar ref={titleRef} />}
-      <Routes>
-        <Route path="/" exact element={<Home ref={titleRef} />} />
-      </Routes>
-      {/* {false && <Route path="/blog" exact component={Blog} />}
+    <>
+      <BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
+        {navBar.show && <Navbar ref={titleRef} />}
+        <Routes>
+          <Route path="/" exact element={<Home ref={titleRef} />} />
+        </Routes>
+        {/* {false && <Route path="/blog" exact component={Blog} />}
       {false && <Route path="/blog/:id" component={BlogPost} />} */}
-      <Footer>
-        {getInTouch.show && (
-          <GetInTouch
-            heading={getInTouch.heading}
-            message={getInTouch.message}
-            email={getInTouch.email}
-          />
-        )}
-      </Footer>
-    </BrowserRouter>
+        <Footer>
+          {getInTouch.show && (
+            <GetInTouch
+              heading={getInTouch.heading}
+              message={getInTouch.message}
+              contact={getInTouch.contact}
+            />
+          )}
+        </Footer>
+      </BrowserRouter>
+    </>
   );
 };
 

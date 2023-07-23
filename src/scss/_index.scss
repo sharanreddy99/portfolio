@@ -67,6 +67,27 @@ code {
     background-color: rgba(0, 0, 0, 0.05);
   }
 }
+
+.colorfade {
+  transition: all 0.8s;
+  margin: 4px;
+  &:hover {
+    color: red;
+    transition: all 0.8s;
+    margin: 4px;
+  }
+}
+
+.colorfade2 {
+  transition: all 0.8s;
+  margin: 4px;
+  &:hover {
+    background-color: red;
+    transition: all 0.8s;
+    margin: 4px;
+  }
+}
+
 .socialicons {
   color: white;
   padding-left: 5px;
@@ -74,7 +95,7 @@ code {
   transition: all 0.8s;
   margin: 4px;
   &:hover {
-    color: black;
+    color: red;
     padding-left: 5px;
     padding-right: 5px;
     transition: all 0.8s;

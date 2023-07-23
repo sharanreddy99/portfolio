@@ -13,13 +13,19 @@ const dummyProject = {
   languages_url: null,
   pushed_at: null,
 };
-const API = "https://api.github.com";
 // const gitHubQuery = "/repos?sort=updated&direction=desc";
 // const specficQuerry = "https://api.github.com/repos/hashirshoaeb/";
 
-const Project = ({ heading, username, length, specfic }) => {
-  const allReposAPI = `${API}/users/${username}/repos?sort=updated&direction=desc`;
-  const specficReposAPI = `${API}/repos/${username}`;
+const Project = ({
+  heading,
+  username,
+  length,
+  specfic,
+  repoURL,
+  deployURL,
+  hostedURL,
+  languagesURL,
+}) => {
   const dummyProjectsArr = new Array(length + specfic.length).fill(
     dummyProject
   );
@@ -28,27 +34,26 @@ const Project = ({ heading, username, length, specfic }) => {
 
   const fetchRepos = useCallback(async () => {
     let repoList = [];
+    let langList = [];
     try {
       // getting all repos
-      const response = await axios.get(allReposAPI);
+      const response1 = await axios.get(repoURL);
+      const response2 = await axios.get(languagesURL);
       // slicing to the length
-      repoList = [...response.data.slice(0, length)];
-      // adding specified repos
-      try {
-        for (let repoName of specfic) {
-          const response = await axios.get(`${specficReposAPI}/${repoName}`);
-          repoList.push(response.data);
+      repoList = [...response1.data.slice(0, length)];
+      langList = [...response2.data.slice(0, length)];
+      for (let i = 0; i < repoList.length; i++) {
+        for (let j = 0; j < langList.length; j++) {
+          if (repoList[i]["name"] === langList[j]["name"]) {
+            repoList[i]["languages"] = langList[j]["data"];
+          }
         }
-      } catch (error) {
-        console.error(error.message);
       }
-      // setting projectArray
-      // TODO: remove the duplication.
       setProjectsArray(repoList);
     } catch (error) {
       console.error(error.message);
     }
-  }, [allReposAPI, length, specfic, specficReposAPI]);
+  }, [repoURL, length]);
 
   useEffect(() => {
     fetchRepos();
@@ -61,19 +66,21 @@ const Project = ({ heading, username, length, specfic }) => {
         <Row>
           {projectsArray.length
             ? projectsArray.map((project, index) => (
-              <ProjectCard
-                key={`project-card-${index}`}
-                id={`project-card-${index}`}
-                value={project}
-              />
-            ))
+                <ProjectCard
+                  key={`project-card-${index}`}
+                  id={`project-card-${index}`}
+                  value={project}
+                  deployURL={deployURL}
+                  hostedURL={hostedURL}
+                />
+              ))
             : dummyProjectsArr.map((project, index) => (
-              <ProjectCard
-                key={`dummy-${index}`}
-                id={`dummy-${index}`}
-                value={project}
-              />
-            ))}
+                <ProjectCard
+                  key={`dummy-${index}`}
+                  id={`dummy-${index}`}
+                  value={project}
+                />
+              ))}
         </Row>
       </Container>
     </Jumbotron>
