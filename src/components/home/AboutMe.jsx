@@ -3,6 +3,8 @@ import React from "react";
 import axios from "axios";
 import { Jumbotron } from "./migration";
 
+import { mainBody } from "../../editable-stuff/config";
+
 const pictureLinkRegex = new RegExp(
   /[(http(s)?):(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/
 );
@@ -32,7 +34,7 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
   }, [link]);
 
   return (
-    <Jumbotron id="aboutme" className="m-0">
+    <Jumbotron id="aboutme">
       <div className="container row">
         <div className="col-5 d-none d-lg-block align-self-center">
           {showPic && (

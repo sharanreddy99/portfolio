@@ -58,7 +58,7 @@ const Home = React.forwardRef((props, ref) => {
       {leadership.show && (
         <Leadership
           heading={leadership.heading}
-          message={leadership.message}
+          messageArr={leadership.messageArr}
           img={leadership.images}
           imageSize={leadership.imageSize}
         />

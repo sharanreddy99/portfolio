@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
 import CustomModal from "../../utils/CustomModal";
+import { Button } from "react-bootstrap";
 
 const ProjectCard = ({ value, hostedURL, deployURL }) => {
   const {
@@ -34,7 +35,7 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
       setShowModal({
         isShow: true,
         title: "Deployment in progress!",
-        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'Go To Project' button is visible",
+        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'Access App' button is visible",
       });
     } catch (e) {
       setShowModal({
@@ -61,12 +62,13 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
         </button>
 
         <button
-          href={hostedURL}
-          target=" _blank"
-          className="btn btn-outline-success mx-2"
+          className="btn btn-outline-success mx-2 customdisabledhover"
+          onClick={() => {
+            window.open(hostedURL, "_blank");
+          }}
           disabled={!is_active}
         >
-          <i className="far fa-eye" /> Go to Project
+          <i className="far fa-eye" /> View App
         </button>
       </div>
     );
@@ -138,7 +140,7 @@ const Language = ({ data, repo_url }) => {
               key={language}
               className="card-link"
               href={repo_url + `/search?l=${language}`}
-              target=" _blank"
+              target="_blank"
               rel="noopener noreferrer"
             >
               <span className="badge bg-light text-dark">
@@ -180,7 +182,7 @@ const CardFooter = ({ star_count, repo_url, pushed_at }) => {
     <p className="card-text">
       <a
         href={repo_url + "/stargazers"}
-        target=" _blank"
+        target="_blank"
         className="text-dark text-decoration-none"
       >
         <span className="text-dark card-link mr-4">

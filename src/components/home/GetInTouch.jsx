@@ -3,8 +3,10 @@ import React from "react";
 const GetInTouch = ({ heading, message, contact }) => {
   return (
     <>
-      <h2 className="display-4 pb-3 text-center">{heading}</h2>
-      <p className="lead text-center pb-3">
+      <h2 className="display-4 text-center lead" style={{ color: "white" }}>
+        {heading}
+      </h2>
+      <p className="lead text-center pb-3 lead" style={{ color: "white" }}>
         {message}
         <br />
 
@@ -21,7 +23,7 @@ const GetInTouch = ({ heading, message, contact }) => {
                 aria-label={`My ${icon.image.split("-")[1]}`}
               >
                 <i className={`${icon.image}`} />
-                {icon.label}
+                <b>{icon.label}</b>
               </a>
               {icon.isBreak ? <br /> : null}
             </>

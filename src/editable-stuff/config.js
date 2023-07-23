@@ -15,16 +15,20 @@ const mainBody = {
   message: " Passionate about changing the world with technology.",
   icons: [
     {
-      image: "fa-github",
+      image: "fab fa-github",
       url: "https://github.com/sharanreddy99",
     },
     {
-      image: "fa-linkedin",
+      image: "fab fa-linkedin",
       url: "https://www.linkedin.com/in/sharan-konda-90b3a6193",
     },
     {
-      image: "fa-instagram",
+      image: "fab fa-instagram",
       url: "https://www.instagram.com/sharan_konda/",
+    },
+    {
+      image: "fas fa-code",
+      url: "https://www.leetcode.com/sharanreddy/",
     },
   ],
 };
@@ -75,8 +79,33 @@ const repos = {
 const leadership = {
   show: true,
   heading: "Certifications",
-  message:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus arcu bibendum at varius. Libero justo laoreet sit amet cursus sit amet. Imperdiet dui accumsan sit amet nulla facilisi morbi. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Et magnis dis parturient montes nascetur ridiculus mus mauris. In nisl nisi scelerisque eu ultrices vitae auctor. Mattis nunc sed blandit libero volutpat sed cras ornare. Pulvinar neque laoreet suspendisse interdum consectetur libero.",
+  messageArr: [
+    {
+      label: "AWS Certified Solitions Architect - Associate",
+      data: `
+          <ul>
+            <li className="lead">Highly skilled in various AWS Services, including but not limited to services offered in the areas of compute, storage, database, networking and content delivery, security and identity management.</l1>
+            <li className="lead">Ability to design robust and scalable architectures that meet the specific needs of a given application while adopting the best practices.</li>
+          </ul>`,
+    },
+    {
+      label: "Docker and Kubernetes - Complete Guide",
+      data: `<ul>
+            <li className="lead">Highly skilled in containerizing projects built using various technologies and stacks and can seamlessly containerize applications into production ready services while ensuring efficiency and speed.</l1>
+            <li className="lead">Ability to orchestrate multi-container applications and manage their dependencies using docker compose.</li>
+            <li className="lead">Proficient in building applications using microservice architecture and containerizing them to seamlessly deploy them. Access  
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/sharanreddy99"
+                className="btn btn-outline-secondary mx-2"
+              >
+                <i className="fab fa-github" /> Github
+              </a> to check out various containerized applications
+            </li>
+          </ul>`,
+    },
+  ],
   images: [
     {
       img: require("../editable-stuff/aws_saa3.png"),
@@ -164,7 +193,7 @@ const getInTouch = {
   show: true,
   heading: "Get In Touch",
   message:
-    "I'm currently looking for opportunites in the areas of Software Development and Devops! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to reach out to me at",
+    "With the passion for building scalable and maintainable applications using cutting edge technologies, I'm currently looking for opportunites in the areas of Software Development and Devops! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to reach out to me!",
 
   contact: {
     icons: [
@@ -178,18 +207,24 @@ const getInTouch = {
         image: "fa fa-envelope fa-2x socialicons",
         href: "mailto:sharansaikonda99@gmail.com",
         label: "sharansaikonda99@gmail.com",
-        isBreak: false,
+        isBreak: true,
       },
       {
         image: "fab fa-linkedin fa-2x socialicons",
         href: "https://www.linkedin.com/in/sharan-konda-90b3a6193/",
-        label: "",
+        label: "sharan-konda",
         isBreak: false,
       },
       {
         image: "fab fa-instagram fa-2x socialicons",
         href: "https://www.instagram.com/sharan_konda/",
-        label: "",
+        label: "sharan_konda",
+        isBreak: false,
+      },
+      {
+        image: "fas fa-code fa-2x socialicons",
+        href: "https://leetcode.com/sharanreddy/",
+        label: "sharanreddy",
         isBreak: false,
       },
     ],
