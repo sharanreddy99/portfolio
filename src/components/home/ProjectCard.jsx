@@ -5,6 +5,8 @@ import Skeleton from "react-loading-skeleton";
 import axios from "axios";
 import CustomModal from "../../utils/CustomModal";
 import { Button } from "react-bootstrap";
+import CustomDangerousModal from "../../utils/CustomDangerousModal";
+import { projectCredentials } from "../../editable-stuff/config";
 
 const ProjectCard = ({ value, hostedURL, deployURL }) => {
   const {
@@ -25,6 +27,20 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
     body: "",
   });
 
+  const [showDangerousModal, setShowDangerousModal] = useState({
+    isShow: false,
+    title: "",
+    body: ``,
+  });
+
+  const showCreds = () => {
+    setShowDangerousModal({
+      isShow: true,
+      title: `${name} Credentails`,
+      body: projectCredentials[name],
+    });
+  };
+
   const buildProject = async () => {
     try {
       const resp = await axios.post(deployURL, {
@@ -35,7 +51,7 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
       setShowModal({
         isShow: true,
         title: "Deployment in progress!",
-        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'Access App' button is visible",
+        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'View App' button is visible",
       });
     } catch (e) {
       setShowModal({
@@ -70,6 +86,13 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
         >
           <i className="far fa-eye" /> View App
         </button>
+
+        <button
+          className="btn btn-outline-dark mx-2 customdisabledhover"
+          onClick={showCreds}
+        >
+          <i className="fa fa-user-secret" /> Creds
+        </button>
       </div>
     );
   };
@@ -77,6 +100,12 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
   return (
     <>
       <Col md={6}>
+        <CustomDangerousModal
+          title={showDangerousModal.title}
+          body={showDangerousModal.body}
+          show={showDangerousModal.isShow}
+          setShow={setShowDangerousModal}
+        />
         <CustomModal
           title={showModal.title}
           body={showModal.body}

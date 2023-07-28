@@ -75,6 +75,27 @@ const repos = {
   specificRepos: [],
 };
 
+const projectCredentials = {
+  ceta: `<div class="mb-3">
+    Faculty Email: <b>prasad@gmail.com</b><br/>
+    Faculty Password: <b>Prasad@99</b><br/>
+    <hr/>
+    Student Roll Number: <b>17881A05G6</b></br>
+    Student Password: <b>Sharan@99</b></br>
+  </div>`,
+  housemate: `<div class="mb-3">
+    Email: <b>sharan.personal.projects@gmail.com</b><br/>
+    Faculty Password: <b>Sharan@99</b><br/>
+    <hr/>
+  </div>`,
+  securechat:
+    "<b> Please sign in using your gmail account inorder to access the application.</b>",
+  elevator_multithreading:
+    "<b> No credentials are required for this application. </b>",
+  image_slideshow: "<b> No credentials are required for this application. </b>",
+  polls_viewer: "<b> No credentials are required for this application. </b>",
+};
+
 // Leadership SECTION
 const leadership = {
   show: true,
@@ -300,4 +321,5 @@ export {
   leadership,
   getInTouch,
   experiences,
+  projectCredentials,
 };
