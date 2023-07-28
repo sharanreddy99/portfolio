@@ -81,7 +81,7 @@ const projectCredentials = {
     Faculty Password: <b>Prasad@99</b><br/>
     <hr/>
     Student Roll Number: <b>17881A05G6</b></br>
-    Student Password: <b>Sharan@99</b></br>
+    Student Password: <b>Sharan@123</b></br>
   </div>`,
   housemate: `<div class="mb-3">
     Email: <b>sharan.personal.projects@gmail.com</b><br/>
