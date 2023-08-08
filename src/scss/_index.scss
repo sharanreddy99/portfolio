@@ -1,8 +1,46 @@
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+::-webkit-scrollbar-corner {
+  background: black;
+}
+
 html {
   font-size: 14px;
-  @media (min-width: 768px) {
+
+  @media (min-width: 100px) {
+    min-width: 120vw !important;
+    font-size: 15px;
+  }
+
+  @media (min-width: 576px) {
+    min-width: 108vw !important;
     font-size: 16px;
   }
+
+  @media (min-width: 768px) {
+    min-width: 100vw !important;
+    font-size: 16px;
+  }
+
+  background-color: white;
   scroll-behavior: smooth;
 }
 
