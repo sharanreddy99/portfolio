@@ -11,9 +11,12 @@ const MainBody = React.forwardRef(
         id="home"
         style={{
           background: `linear-gradient(100deg, ${gradient})`,
-          backgroundSize: "1200% 1200%",
+          minWidth: "100vw",
+          maxWidth: "100vw",
+          minHeight: "100vh",
+          maxHeight: "100vh",
         }}
-        className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+        className="title bg-transparent bgstyle text-light d-flex align-content-center align-items-center m-0"
       >
         <div id="stars" style={{ position: "absolute", left: "-50px" }}></div>
         <Container className="text-center">

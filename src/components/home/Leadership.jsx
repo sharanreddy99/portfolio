@@ -34,7 +34,12 @@ const Leadership = ({ heading, messageArr, img, imageSize }) => {
     <Jumbotron
       id="leadership"
       className="m-0"
-      style={{ backgroundColor: "white" }}
+      style={{
+        backgroundColor: "white",
+        minWidth: "100vw",
+        maxWidth: "100vw",
+        overflow: "scroll",
+      }}
     >
       <h2 className="display-4 pb-5 text-center">{heading}</h2>
       <div className="row">
@@ -52,8 +57,8 @@ const Leadership = ({ heading, messageArr, img, imageSize }) => {
                     className="d-block w-100"
                     src={value.img}
                     alt="First slide"
-                    width={imageSize.width}
-                    height={imageSize.height}
+                    width={imageSize.width()}
+                    height={imageSize.height()}
                   />
                   <Carousel.Caption>
                     <h3>{value.label}</h3>

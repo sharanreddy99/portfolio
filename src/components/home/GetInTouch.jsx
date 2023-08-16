@@ -3,14 +3,14 @@ import React from "react";
 const GetInTouch = ({ heading, message, contact }) => {
   return (
     <>
-      <h2 className="display-4 text-center lead" style={{ color: "white" }}>
+      <h2 className="display-3 text-center lead" style={{ color: "white" }}>
         {heading}
       </h2>
       <p className="lead text-center pb-3 lead" style={{ color: "white" }}>
         {message}
         <br />
 
-        <div className="p-5">
+        <div className="p-4">
           {contact.icons.map((icon, index) => (
             <>
               <a
@@ -25,7 +25,11 @@ const GetInTouch = ({ heading, message, contact }) => {
                 <i className={`${icon.image}`} />
                 <b>{icon.label}</b>
               </a>
-              {icon.isBreak ? <br /> : null}
+              {window.innerWidth < 576 || icon.isBreak ? (
+                <>
+                  <br />
+                </>
+              ) : null}
             </>
           ))}
         </div>

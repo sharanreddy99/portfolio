@@ -40,7 +40,7 @@ const Navigation = React.forwardRef((props, ref) => {
   return (
     <Navbar
       ref={navbarMenuRef}
-      className={`px-3 fixed-top ${
+      className={` fixed-top px-3 ${
         !isTop ? "customnavbarcolor" : "customnavbarblack"
       }`}
       expand="lg"

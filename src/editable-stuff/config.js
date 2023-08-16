@@ -51,7 +51,17 @@ const about = {
   show: true,
   heading: "About Me",
   imageLink: require("../editable-stuff/profile.jpg"),
-  imageSize: 375,
+  imageSize: () => {
+    if (window.innerWidth < 576) {
+      return 250;
+    } else if (window.innerWidth < 768) {
+      return 280;
+    } else if (window.innerWidth < 992) {
+      return 320;
+    } else {
+      return 375;
+    }
+  },
   message:
     "My name is Sharan. I would like to describe myself as someone who likes to play around with scripts. Self-motivated individual who takes the DRY principle seriously. Likes to automate even the smallest jobs and minimize the manual effort applied.I am an experienced software developer with a strong background in building and maintaining web applications, well versed in the computer science fundamentals and skilled in a variety of programming languages and frameworks, including Golang, Python, Java, ReactJS, Angular. Strong knowledge in containerizing applications and distributed version control along with good understanding of the Design patterns, SOLID principles and services offered by AWS. Passionate about staying up-to-date with the latest development technologies and practices. Seeking new opportunities to apply my skills and continue learning and growing as a developer.",
   resume:
@@ -160,8 +170,20 @@ const leadership = {
     },
   ],
   imageSize: {
-    width: "615",
-    height: "450",
+    width: () => {
+      if (window.innerWidth < 768) {
+        return 400;
+      } else {
+        return 615;
+      }
+    },
+    height: () => {
+      if (window.innerWidth < 768) {
+        return 350;
+      } else {
+        return 450;
+      }
+    },
   },
 };
 

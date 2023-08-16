@@ -20,7 +20,18 @@ const Skills = React.forwardRef(({ heading, defaultKey, skills }, ref) => {
     skillsTabRef
   );
   return (
-    <Jumbotron ref={skillsTabRef} fluid className="bg-white m-0" id="skills">
+    <Jumbotron
+      ref={skillsTabRef}
+      fluid
+      className="bg-white m-0"
+      id="skills"
+      style={{
+        backgroundColor: "white",
+        minWidth: "100vw",
+        maxWidth: "100vw",
+        overflow: "scroll",
+      }}
+    >
       <Container className="p-5 ">
         <h2 ref={skillsTabRef} className="display-4 pb-5 text-center">
           {heading}

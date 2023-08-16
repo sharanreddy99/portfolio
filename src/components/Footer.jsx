@@ -2,10 +2,14 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 
 const Footer = (props) => {
-  const bgStyle = { backgroundColor: "#000000" };
+  const bgStyle = {
+    backgroundColor: "#000000",
+    minWidth: "100vw",
+    maxWidth: "100vw",
+  };
 
   return (
-    <footer style={bgStyle} className="mt-auto py-1 text-center ">
+    <footer style={bgStyle} className="text-center">
       <Container>{props.children}</Container>
     </footer>
   );
