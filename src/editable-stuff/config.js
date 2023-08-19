@@ -112,7 +112,7 @@ const leadership = {
   heading: "Certifications",
   messageArr: [
     {
-      label: "AWS Certified Solitions Architect - Associate",
+      label: "AWS Certified Solutions Architect - Associate",
       data: `
           <ul>
             <li className="lead">Highly skilled in various AWS Services, including but not limited to services offered in the areas of compute, storage, database, networking and content delivery, security and identity management.</li>
