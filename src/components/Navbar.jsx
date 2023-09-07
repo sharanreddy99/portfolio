@@ -7,6 +7,7 @@ import {
   mainBody,
   repos,
   about,
+  experiences,
   skills,
   leadership,
 } from "../editable-stuff/config.js";
@@ -70,6 +71,19 @@ const Navigation = React.forwardRef((props, ref) => {
                 className={`${!isTop ? "customheading2" : ""}`}
               >
                 About
+              </b>
+            </NavLink>
+          )}
+          {experiences.show && (
+            <NavLink
+              className="nav-item lead"
+              href={process.env.PUBLIC_URL + "/#experience"}
+            >
+              <b
+                style={{ fontSize: "1em" }}
+                className={`${!isTop ? "customheading2" : ""}`}
+              >
+                Experience
               </b>
             </NavLink>
           )}
