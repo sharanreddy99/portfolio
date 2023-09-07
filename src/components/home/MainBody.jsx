@@ -22,7 +22,7 @@ const MainBody = React.forwardRef(
         <Container className="text-center">
           <h1
             ref={ref}
-            className="display-1 colorfade"
+            className="display-1 colorfade customtextshadow"
             style={{ userSelect: "none" }}
           >
             {title}

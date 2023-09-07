@@ -63,15 +63,15 @@ const Project = ({
     <Jumbotron
       fluid
       id="projects"
-      className="bg-light m-0"
+      className=" m-0"
       style={{
         minWidth: "100vw",
         maxWidth: "100vw",
         overflow: "scroll",
       }}
     >
-      <Container className="">
-        <h2 className="display-4 pb-5 text-center">{heading}</h2>
+      <Container className="cardcontainer">
+        <h2 className="display-4 pb-5 text-center customheading">{heading}</h2>
         <Row>
           {projectsArray.length
             ? projectsArray.map((project, index) => (

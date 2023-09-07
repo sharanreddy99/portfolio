@@ -32,8 +32,11 @@ const Skills = React.forwardRef(({ heading, defaultKey, skills }, ref) => {
         overflow: "scroll",
       }}
     >
-      <Container className="p-5 ">
-        <h2 ref={skillsTabRef} className="display-4 pb-5 text-center">
+      <Container className="p-5 cardcontainer">
+        <h2
+          ref={skillsTabRef}
+          className="display-4 pb-5 text-center customheading"
+        >
           {heading}
         </h2>
         <Tabs

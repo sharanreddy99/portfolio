@@ -41,11 +41,15 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
         maxWidth: "100vw",
       }}
     >
-      <div className="container row">
+      <div
+        className="container row cardcontainer"
+        style={{ marginLeft: "0.5%" }}
+      >
+        <h2 className="display-4 text-center customheading">{heading}</h2>
         <div className="col-lg-5 align-self-center text-center">
           {showPic && (
             <img
-              className="border mx-auto border-secondary rounded-circle"
+              className="border mx-auto border-secondary rounded-circle mb-4"
               src={profilePicUrl}
               alt="profilepicture"
               width={imgSize()}
@@ -54,8 +58,12 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
           )}
         </div>
         <div className={`col-lg-${showPic ? "7" : "12"}`}>
-          <h2 className="display-4 mb-5 text-center">{heading}</h2>
-          <p className="lead text-center">{message}</p>
+          <p
+            className="lead text-center"
+            style={{ color: "black", backgroundImage: "none" }}
+          >
+            {message}
+          </p>
           {resume && (
             <p className="lead text-center">
               <a

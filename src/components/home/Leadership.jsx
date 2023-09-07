@@ -15,7 +15,11 @@ function CustomCollapse({ label, data }) {
           onClick={() => setOpen(!open)}
         >
           <Card.Body>
-            <Card.Title as="h5">{label} </Card.Title>
+            <Card.Title as="h5">
+              <b style={{ fontSize: "1em" }} className="customheading2">
+                {label}
+              </b>
+            </Card.Title>
             <Collapse in={open}>
               <div
                 id="example-collapse-text"
@@ -41,8 +45,8 @@ const Leadership = ({ heading, messageArr, img, imageSize }) => {
         overflow: "scroll",
       }}
     >
-      <h2 className="display-4 pb-5 text-center">{heading}</h2>
-      <div className="row">
+      <div className="row cardcontainer">
+        <h2 className="display-4 pb-5 text-center customheading">{heading}</h2>
         <div className="col-md-5">
           {messageArr.map((message) => (
             <CustomCollapse label={message.label} data={message.data} />

@@ -63,7 +63,7 @@ const about = {
     }
   },
   message:
-    "My name is Sharan. I would like to describe myself as someone who likes to play around with scripts. Self-motivated individual who takes the DRY principle seriously. Likes to automate even the smallest jobs and minimize the manual effort applied.I am an experienced software developer with a strong background in building and maintaining web applications, well versed in the computer science fundamentals and skilled in a variety of programming languages and frameworks, including Golang, Python, Java, ReactJS, Angular. Strong knowledge in containerizing applications and distributed version control along with good understanding of the Design patterns, SOLID principles and services offered by AWS. Passionate about staying up-to-date with the latest development technologies and practices. Seeking new opportunities to apply my skills and continue learning and growing as a developer.",
+    "I'm Sharan, and I'd describe myself as someone who enjoys tinkering with scripts. I'm a self-motivated individual who takes the 'Don't Repeat Yourself' (DRY) principle to heart. I have a penchant for automating even the most minor tasks to minimize manual effort.I come with a wealth of experience as a software developer, specializing in building and maintaining web applications. My foundation in computer science is robust, and I'm proficient in various programming languages and frameworks, including Golang, Python, Java, ReactJS, and Angular. I'm well-versed in containerizing applications and managing distributed version control systems. I also have a solid grasp of design patterns, adhere to SOLID principles, and am adept at utilizing AWS services. I'm passionate about keeping abreast of the latest developments in technology and best practices in the field. I'm actively seeking new opportunities to apply my skills and continue my journey of learning and growth as a developer.",
   resume:
     "https://docs.google.com/document/d/1HnA4fEmG8ALQyRdLEmtG9HzyRpkXxn-A/edit?usp=sharing&ouid=110707707509522259480&rtpof=true&sd=true",
 };
@@ -256,7 +256,7 @@ const getInTouch = {
   show: true,
   heading: "Get In Touch",
   message:
-    "With the passion for building scalable and maintainable applications using cutting edge technologies, I'm currently looking for opportunites in the areas of Software Development and Devops! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to reach out to me!",
+    "I have a strong enthusiasm for creating scalable and easily maintainable applications using the latest technologies. Currently, I am actively seeking opportunities in the fields of Software Development and DevOps. If you are aware of any open positions, have inquiries, or simply want to connect and say hello, please don't hesitate to get in touch with me!",
 
   contact: {
     icons: [
@@ -270,7 +270,7 @@ const getInTouch = {
         image: "fa fa-envelope fa-2x socialicons",
         href: "mailto:sharansaikonda99@gmail.com",
         label: "sharansaikonda99@gmail.com",
-        isBreak: true,
+        isBreak: false,
       },
       {
         image: "fab fa-linkedin fa-2x socialicons",

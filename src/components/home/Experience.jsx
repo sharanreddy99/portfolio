@@ -9,12 +9,14 @@ const Experience = ({ experiences }) => {
       <Jumbotron
         className="bg-white"
         style={{
-          minWidth: "100vw",
+          minWidth: "80vw",
           maxWidth: "100vw",
           overflow: "scroll",
         }}
       >
-        <h2 className="display-4 mb-5 text-center">{experiences.heading}</h2>
+        <h2 className="display-4 mb-5 text-center customheading">
+          {experiences.heading}
+        </h2>
         <Row>
           {experiences.data.map((data, index) => {
             return <ExperienceCard key={index} data={data} />;

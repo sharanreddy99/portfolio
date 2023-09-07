@@ -21,8 +21,7 @@ const Navigation = React.forwardRef((props, ref) => {
   const navBottom = navbarDimensions ? navbarDimensions.bottom : 0;
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      if (!navbarDimensions) return;
-      currPos.y + ref.current.offsetTop - navbarDimensions.bottom > 5
+      -currPos.y + navBottom >= document.body.parentElement.clientHeight
         ? setIsTop(true)
         : setIsTop(false);
       setScrollPosition(currPos.y);
@@ -31,8 +30,7 @@ const Navigation = React.forwardRef((props, ref) => {
   );
 
   React.useEffect(() => {
-    if (!navbarDimensions) return;
-    navBottom - scrollPosition >= ref.current.offsetTop
+    -scrollPosition + navBottom >= document.body.parentElement.clientHeight
       ? setIsTop(false)
       : setIsTop(true);
   }, [navBottom, navbarDimensions, ref, scrollPosition]);
@@ -49,11 +47,14 @@ const Navigation = React.forwardRef((props, ref) => {
         className="navbar-brand"
         href={process.env.PUBLIC_URL + "/#home"}
       >
-        <b>{`<${mainBody.firstName} />`}</b>
+        <b
+          className={`${!isTop ? "customheading" : ""}`}
+          style={{ fontSize: "1em" }}
+        >{`<${mainBody.firstName} />`}</b>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="navbar-nav mr-auto">
+        <Nav className="navbar-nav ms-auto">
           {/* {
             <NavLink className="nav-item lead">
               <Link to={process.env.PUBLIC_URL + "/blog"}>Blog</Link>
@@ -64,17 +65,32 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#aboutme"}
             >
-              About
+              <b
+                style={{ fontSize: "1em" }}
+                className={`${!isTop ? "customheading2" : ""}`}
+              >
+                About
+              </b>
             </NavLink>
           )}
           {repos.show && (
             <NavLink href={process.env.PUBLIC_URL + "/#projects"}>
-              Projects
+              <b
+                style={{ fontSize: "1em" }}
+                className={`${!isTop ? "customheading2" : ""}`}
+              >
+                Projects
+              </b>
             </NavLink>
           )}
           {leadership.show && (
             <NavLink href={process.env.PUBLIC_URL + "/#leadership"}>
-              Certifications
+              <b
+                style={{ fontSize: "1em" }}
+                className={`${!isTop ? "customheading2" : ""}`}
+              >
+                Certifications
+              </b>
             </NavLink>
           )}
 
@@ -83,7 +99,12 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#skills"}
             >
-              Skills
+              <b
+                style={{ fontSize: "1em" }}
+                className={`${!isTop ? "customheading2" : ""}`}
+              >
+                Skills
+              </b>
             </NavLink>
           )}
           <NavLink
@@ -92,7 +113,12 @@ const Navigation = React.forwardRef((props, ref) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Resume
+            <b
+              style={{ fontSize: "1em" }}
+              className={`${!isTop ? "customheading2" : ""}`}
+            >
+              Resume
+            </b>
           </NavLink>
         </Nav>
       </Navbar.Collapse>
