@@ -122,7 +122,14 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
               ) || <Skeleton />}{" "}
             </Card.Title>
             <Card.Text>
-              {!description ? "" : description || <Skeleton count={3} />}{" "}
+              <b
+                style={{
+                  height: "120px",
+                  display: "block",
+                }}
+              >
+                {!description ? "" : description || <Skeleton count={3} />}{" "}
+              </b>
             </Card.Text>
             {svn_url ? (
               <CardButtons
