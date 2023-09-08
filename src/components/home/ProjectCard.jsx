@@ -99,7 +99,7 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
 
   return (
     <>
-      <Col md={6}>
+      <Col sm ={12} md={12} lg={6}>
         <CustomDangerousModal
           title={showDangerousModal.title}
           body={showDangerousModal.body}
