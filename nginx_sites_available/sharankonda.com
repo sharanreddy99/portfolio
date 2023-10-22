@@ -14,10 +14,6 @@ server {
       include /etc/letsencrypt/options-ssl-nginx.conf;
       ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-      if ($host = www.sharankonda.com) {
-            return 301 https://sharankonda.com$request_uri;
-      }
-
       location / {
             try_files $uri $uri/ =404;
       }
