@@ -11,10 +11,6 @@ server {
 				# Nginx uses the 'empty' name
         server_name sharankonda.com;
 
-        if ($host = www.sharankonda.com) {
-            return 301 https://sharankonda.com$request_uri;
-        }
-
         location / {
             # Return a 404 error for instances when the server receives 
 						# requests for untraceable files and directories.
