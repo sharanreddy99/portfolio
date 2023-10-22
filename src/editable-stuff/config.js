@@ -3,7 +3,7 @@ const navBar = {
   show: true,
 };
 
-const backendBaseURL = "https://project.sharankonda.com:8080";
+const backendBaseURL = "https://deployer.sharankonda.com";
 const hostedURL = "http://project.sharankonda.com";
 
 // Main Body SECTION
