@@ -51,7 +51,8 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
       setShowModal({
         isShow: true,
         title: "Deployment in progress!",
-        body: "You have initiated the deployment process for the project. Please wait for a minute and refresh this page until the 'View App' button is visible",
+        body: "You have initiated the deployment process for the project. Please wait until the deployment timer ends and click on the refresh button to access the hosted application. In case, the 'View App' button is still disabled, please wait a few seconds and refresh again.",
+        showProgress: true,
       });
     } catch (e) {
       setShowModal({
@@ -99,7 +100,7 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
 
   return (
     <>
-      <Col sm ={12} md={12} lg={6}>
+      <Col sm={12} md={12} lg={6}>
         <CustomDangerousModal
           title={showDangerousModal.title}
           body={showDangerousModal.body}
@@ -111,6 +112,8 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
           body={showModal.body}
           show={showModal.isShow}
           setShow={setShowModal}
+          showProgress={showModal.showProgress === true}
+          progressPeriod={59}
         />
         <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
           <Card.Body>

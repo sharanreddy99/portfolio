@@ -1,8 +1,40 @@
+import ProgressBar from "react-bootstrap/ProgressBar";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Badge } from "react-bootstrap";
+import Countdown from "react-countdown";
 
-const CustomModal = ({ title, body, show, setShow }) => {
+const CustomModal = ({
+  title,
+  body,
+  show,
+  setShow,
+  showProgress = false,
+  progressPeriod = 0,
+}) => {
   const handleClose = () => setShow(false);
+
+  // Renderer callback with condition
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return (
+        <Button
+          variant="success"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          <b>Refresh</b>
+        </Button>
+      );
+    } else {
+      return (
+        <Button variant="danger">
+          <b>Deploying in {minutes * 60 + seconds} seconds </b>
+        </Button>
+      );
+    }
+  };
 
   return (
     <>
@@ -12,14 +44,27 @@ const CustomModal = ({ title, body, show, setShow }) => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
-        </Modal.Header>
+        {showProgress === true ? (
+          <Modal.Header>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+        ) : (
+          <Modal.Header closeButton>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+        )}
         <Modal.Body>{body}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
+          {showProgress === true ? (
+            <Countdown
+              date={Date.now() + progressPeriod * 1000}
+              renderer={renderer}
+            />
+          ) : (
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>
