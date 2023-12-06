@@ -104,6 +104,9 @@ const projectCredentials = {
     "<b> No credentials are required for this application. </b>",
   image_slideshow: "<b> No credentials are required for this application. </b>",
   polls_viewer: "<b> No credentials are required for this application. </b>",
+  walmart_order_parser:
+    "<b> No credentials are required for this application. </b>",
+  dbms_algos: "<b> No credentials are required for this application. </b>",
 };
 
 // Leadership SECTION
