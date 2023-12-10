@@ -64,8 +64,7 @@ const about = {
   },
   message:
     "I'm Sharan, and I'd describe myself as someone who enjoys tinkering with scripts. I'm a self-motivated individual who takes the 'Don't Repeat Yourself' (DRY) principle to heart. I have a penchant for automating even the most minor tasks to minimize manual effort.I come with a wealth of experience as a software developer, specializing in building and maintaining web applications. My foundation in computer science is robust, and I'm proficient in various programming languages and frameworks, including Golang, Python, Java, ReactJS, and Angular. I'm well-versed in containerizing applications and managing distributed version control systems. I also have a solid grasp of design patterns, adhere to SOLID principles, and am adept at utilizing AWS services. I'm passionate about keeping abreast of the latest developments in technology and best practices in the field. I'm actively seeking new opportunities to apply my skills and continue my journey of learning and growth as a developer.",
-  resume:
-    "https://docs.google.com/document/d/1HnA4fEmG8ALQyRdLEmtG9HzyRpkXxn-A/edit?usp=sharing&ouid=110707707509522259480&rtpof=true&sd=true",
+  resume: "https://www.sharankonda.com/SharanSaiReddy_Konda.pdf",
 };
 
 // PROJECTS SECTION
