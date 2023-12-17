@@ -127,7 +127,7 @@ const ProjectCard = ({ value, hostedURL, deployURL }) => {
             <Card.Text>
               <b
                 style={{
-                  height: "120px",
+                  height: "150px",
                   display: "block",
                 }}
               >
