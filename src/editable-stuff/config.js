@@ -132,6 +132,25 @@ const leadership = {
         "https://www.credly.com/badges/6bfbeb13-dace-4d93-b14a-287b56fe53aa/linked_in_profile",
     },
     {
+      label: "Microsoft Certified: Azure Data Engineer Associate",
+      data: `
+          <ul>
+            <li className="lead">deep expertise in a range of Azure data services, including Azure Data Factory, Synapse Analytics, Data Lake Storage Gen2, Databricks.</li>
+            <li className="lead">Proficient in designing and implementing robust, scalable data solutions that ensure efficient data management, processing, and security.</li>
+            <li className="lead">Demonstrates a strong ability to leverage Azure's comprehensive suite of data services to build resilient architectures that cater to complex data workflows, optimize performance, and adhere to best practices in data governance and compliance.</li>
+            <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://learn.microsoft.com/api/credentials/share/en-us/SharanSaiKonda-2095/F240BC29AFD71C97?sharingId=C707F11359781231"
+                className="btn btn-outline-secondary mx-2"
+              >
+              Credentials:
+              </a>
+            </ul>`,
+      credentials:
+        "https://learn.microsoft.com/api/credentials/share/en-us/SharanSaiKonda-2095/F240BC29AFD71C97?sharingId=C707F11359781231",
+    },
+    {
       label: "Docker and Kubernetes - Complete Guide",
       data: `<ul>
             <li className="lead">Highly skilled in containerizing projects built using various technologies and stacks and can seamlessly containerize applications into production ready services while ensuring efficiency and speed.</li>
@@ -162,6 +181,11 @@ const leadership = {
   images: [
     {
       img: require("../editable-stuff/aws_saa3.png"),
+      label: "",
+      paragraph: "",
+    },
+    {
+      img: require("../editable-stuff/azure_de.png"),
       label: "",
       paragraph: "",
     },
@@ -219,7 +243,7 @@ const skills = {
         { name: "NOSQL", value: 75 },
         { name: "React", value: 100 },
         { name: "Angular", value: 70 },
-        { name: "Django", value: 70 },
+        { name: "Flask", value: 90 },
       ],
     },
     {
@@ -227,12 +251,14 @@ const skills = {
       title: "Industry Knowledge",
       data: [
         { name: "AWS", value: 95 },
+        { name: "Azure", value: 90 },
         { name: "Data Structures and Algorithms", value: 80 },
         { name: "Operating Systems", value: 90 },
         { name: "Computer Networks", value: 80 },
         { name: "Design Patterns", value: 90 },
         { name: "Docker", value: 90 },
         { name: "Kubernetes", value: 70 },
+        { name: "Databricks", value: 90 },
         { name: "Git", value: 90 },
       ],
     },
