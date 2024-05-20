@@ -14,7 +14,10 @@ server {
       include /etc/letsencrypt/options-ssl-nginx.conf;
       ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-      location / {
+       location / {
+              if ($request_uri ~* "^/(home|projects|certifications|experience|opensource|contact)$") {
+                 return 301 $scheme://$host/?page=$1;
+              }
             try_files $uri $uri/ =404;
       }
     }
